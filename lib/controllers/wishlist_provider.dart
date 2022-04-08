@@ -4,13 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:food_delivery_app/models/product_model.dart';
 
 class WishListProvider with ChangeNotifier {
-  addWishListData(
-    String wishListId,
-    String wishListName,
-    var wishListPrice,
-    String wishListImage,
-    int wishListQuantity,
-  ) {
+  addWishListData({
+    required String wishListId,
+    required String wishListName,
+    required var wishListPrice,
+    required String wishListImage,
+    required int wishListQuantity,
+  }) {
     FirebaseFirestore.instance
         .collection("WishList")
         .doc(FirebaseAuth.instance.currentUser.uid)

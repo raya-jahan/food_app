@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/config/colors.dart';
-import 'package:food_delivery_app/models/review_cart_model.dart';
 import 'package:food_delivery_app/controllers/wishlist_provider.dart';
 import 'package:food_delivery_app/view/review_cart/review_cart.dart';
 import 'package:food_delivery_app/view/count/count.dart';
@@ -28,14 +27,14 @@ class ProductOverview extends StatefulWidget {
 class _ProductOverviewState extends State<ProductOverview> {
   SinginCharacter _character = SinginCharacter.fill;
 
-  Widget bonntonNavigatorBar(
-    Color iconColor,
-    Color backgroundColor,
-    Color color,
-    String title,
-    IconData iconData,
-    Function onTap,
-  ) {
+  Widget bonntonNavigatorBar({
+    required Color iconColor,
+    required Color backgroundColor,
+    required Color color,
+    required String title,
+    required IconData iconData,
+    required Function onTap,
+  }) {
     return Expanded(
       child: GestureDetector(
         onTap: onTap(),
@@ -96,7 +95,7 @@ class _ProductOverviewState extends State<ProductOverview> {
       bottomNavigationBar: Row(
         children: [
           bonntonNavigatorBar(
-              //backgroundColor: textColor,
+              backgroundColor: textColor,
               color: Colors.white70,
               iconColor: Colors.grey,
               title: "Add To WishList",
@@ -157,7 +156,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                       height: 250,
                       padding: EdgeInsets.all(40),
                       child: Image.network(
-                        widget.productImage ?? "",
+                        widget.productImage,
                       )),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20),
@@ -189,9 +188,9 @@ class _ProductOverviewState extends State<ProductOverview> {
                               groupValue: _character,
                               activeColor: Colors.green[700],
                               onChanged: (value) {
-                                setState(() {
-                                  _character = value;
-                                });
+                                (val) => setState(() {
+                                      _character = value as SinginCharacter;
+                                    });
                               },
                             ),
                           ],

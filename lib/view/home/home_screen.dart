@@ -3,7 +3,6 @@ import 'package:food_delivery_app/config/colors.dart';
 import 'package:food_delivery_app/controllers/product_provider.dart';
 import 'package:food_delivery_app/controllers/user_provider.dart';
 import 'package:food_delivery_app/view/product_overview/product_overview.dart';
-import 'package:food_delivery_app/view/home/signal_product.dart';
 import 'package:food_delivery_app/view/review_cart/review_cart.dart';
 import 'package:food_delivery_app/view/search/search.dart';
 import 'package:provider/provider.dart';

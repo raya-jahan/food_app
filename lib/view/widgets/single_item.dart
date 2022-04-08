@@ -84,7 +84,7 @@ class _SingleItemState extends State<SingleItem> {
                           Text(
                             "${widget.productPrice}\$",
                             style: TextStyle(
-                                // color: textColor, fontWeight: FontWeight.bold),
+                                color: textColor, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),

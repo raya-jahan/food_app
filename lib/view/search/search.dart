@@ -4,16 +4,20 @@ import 'package:food_delivery_app/view/widgets/single_item.dart';
 
 class Search extends StatefulWidget {
   final List<ProductModel> search;
-  Search(this.search);
+  Search({required this.search});
   @override
   _SearchState createState() => _SearchState();
+
+// My version builder- added it myself
+
+  static builder({required List<ProductModel> search}) {}
 }
 
 class _SearchState extends State<Search> {
   String query = "";
 
   searchItem(String query) {
-    //List<ProductModel> searchFood = widget.search.where((element) {
+    List<ProductModel> searchFood = widget.search.where((element) {
       return element.productName.toLowerCase().contains(query);
     }).toList();
     return searchFood;
@@ -21,7 +25,7 @@ class _SearchState extends State<Search> {
 
   @override
   Widget build(BuildContext context) {
-    //List<ProductModel> _searchItem = searchItem(query);
+    List<ProductModel> _searchItem = searchItem(query);
     return Scaffold(
       appBar: AppBar(
         title: Text("Search"),

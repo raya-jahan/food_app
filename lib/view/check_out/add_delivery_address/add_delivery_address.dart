@@ -99,10 +99,10 @@ class _AddDeliverAddressState extends State<AddDeliverAddress> {
               labText: "Pincode",
               controller: checkoutProvider.pincode,
             ),
-            CustomTextField(
-              labText: "AddressType",
-              controller: checkoutProvider.addressType,
-            ),
+            // CustomTextField(
+            //   labText: "AddressType",
+            //   controller: checkoutProvider.addressType,
+            // ),
             InkWell(
               onTap: () {
                 Navigator.of(context).push(
@@ -118,6 +118,7 @@ class _AddDeliverAddressState extends State<AddDeliverAddress> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // ignore: unnecessary_null_comparison
                     checkoutProvider.setLoaction == null
                         ? Text("Set Loaction")
                         : Text("Done!"),

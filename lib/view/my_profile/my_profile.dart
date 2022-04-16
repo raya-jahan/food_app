@@ -13,8 +13,7 @@ class MyProfile extends StatefulWidget {
 }
 
 class _MyProfileState extends State<MyProfile> {
-  @override
-  Widget listTile(IconData icon, String title) {
+  Widget listTile({required IconData icon, required String title}) {
     return Column(
       children: [
         Divider(
@@ -138,8 +137,7 @@ class _MyProfileState extends State<MyProfile> {
               backgroundColor: primaryColor,
               child: CircleAvatar(
                   backgroundImage: NetworkImage(
-                    userData.userImage ??
-                        "https://s3.envato.com/files/328957910/vegi_thumb.png",
+                    userData.userImage,
                   ),
                   radius: 45,
                   backgroundColor: scaffoldBackgroundColor),

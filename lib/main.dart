@@ -2,12 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:food_delivery_app/view/authentication/sign_in.dart';
-//import 'package:food_delivery_app/config/colors.dart';
+import 'package:food_delivery_app/config/colors.dart';
 import 'package:food_delivery_app/controllers/check_out_provider.dart';
 import 'package:food_delivery_app/controllers/product_provider.dart';
 import 'package:food_delivery_app/controllers/review_cart_provider.dart';
 import 'package:food_delivery_app/controllers/user_provider.dart';
-import 'package:food_delivery_app/controllers/wishlist_provider.dart';
+//import 'package:food_delivery_app/controllers/wishlist_provider.dart';
 import 'package:food_delivery_app/view/home/home_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -39,9 +39,9 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        // theme: ThemeData(
-        //     primaryColor: primaryColor,
-        //     scaffoldBackgroundColor: scaffoldBackgroundColor),
+        theme: ThemeData(
+            primaryColor: primaryColor,
+            scaffoldBackgroundColor: scaffoldBackgroundColor),
         debugShowCheckedModeBanner: false,
         home: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),

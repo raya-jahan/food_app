@@ -42,6 +42,7 @@ class CheckoutProvider with ChangeNotifier {
       Fluttertoast.showToast(msg: "aera is empty");
     } else if (pincode.text.isEmpty) {
       Fluttertoast.showToast(msg: "pincode is empty");
+      // ignore: unnecessary_null_comparison
     } else if (setLoaction == null) {
       Fluttertoast.showToast(msg: "setLoaction is empty");
     } else {
@@ -49,7 +50,7 @@ class CheckoutProvider with ChangeNotifier {
       notifyListeners();
       await FirebaseFirestore.instance
           .collection("AddDeliverAddress")
-          .doc(FirebaseAuth.instance.currentUser.uid)
+          .doc(FirebaseAuth.instance.currentUser!.uid)
           .set({
         "firstname": firstName.text,
         "lastname": lastName.text,
@@ -82,7 +83,7 @@ class CheckoutProvider with ChangeNotifier {
     DeliveryAddressModel deliveryAddressModel;
     DocumentSnapshot _db = await FirebaseFirestore.instance
         .collection("AddDeliverAddress")
-        .doc(FirebaseAuth.instance.currentUser.uid)
+        .doc(FirebaseAuth.instance.currentUser!.uid)
         .get();
     if (_db.exists) {
       deliveryAddressModel = DeliveryAddressModel(
@@ -119,7 +120,7 @@ class CheckoutProvider with ChangeNotifier {
   }) async {
     FirebaseFirestore.instance
         .collection("Order")
-        .doc(FirebaseAuth.instance.currentUser.uid)
+        .doc(FirebaseAuth.instance.currentUser!.uid)
         .collection("MyOrders")
         .doc()
         .set(

@@ -1,24 +1,23 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/config/colors.dart';
-import 'package:food_delivery_app/models/product_model.dart';
 import 'package:food_delivery_app/controllers/review_cart_provider.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class Count extends StatefulWidget {
-  String productName;
-  String productImage;
-  String productId;
-  int productPrice;
-  var productUnit;
+  late String? productName;
+  late String? productImage;
+  late String? productId;
+  late int? productPrice;
+  late var productUnit;
 
   Count({
-    required this.productName,
-    required this.productUnit,
-    required this.productId,
-    required this.productImage,
-    required this.productPrice,
+    this.productName,
+    this.productUnit,
+    this.productId,
+    this.productImage,
+    this.productPrice,
   });
   @override
   _CountState createState() => _CountState();
@@ -79,10 +78,10 @@ class _CountState extends State<Count> {
                         count--;
                       });
                       reviewCartProvider.updateReviewCartData(
-                        cartId: widget.productId,
-                        cartImage: widget.productImage,
-                        cartName: widget.productName,
-                        cartPrice: widget.productPrice,
+                        cartId: widget.productId!,
+                        cartImage: widget.productImage!,
+                        cartName: widget.productName!,
+                        cartPrice: widget.productPrice!,
                         cartQuantity: count,
                       );
                     }
@@ -106,10 +105,10 @@ class _CountState extends State<Count> {
                       count++;
                     });
                     reviewCartProvider.updateReviewCartData(
-                      cartId: widget.productId,
-                      cartImage: widget.productImage,
-                      cartName: widget.productName,
-                      cartPrice: widget.productPrice,
+                      cartId: widget.productId!,
+                      cartImage: widget.productImage!,
+                      cartName: widget.productName!,
+                      cartPrice: widget.productPrice!,
                       cartQuantity: count,
                     );
                   },
@@ -128,10 +127,10 @@ class _CountState extends State<Count> {
                     isTrue = true;
                   });
                   reviewCartProvider.addReviewCartData(
-                    cartId: widget.productId,
-                    cartImage: widget.productImage,
-                    cartName: widget.productName,
-                    cartPrice: widget.productPrice,
+                    cartId: widget.productId!,
+                    cartImage: widget.productImage!,
+                    cartName: widget.productName!,
+                    cartPrice: widget.productPrice!,
                     cartQuantity: count,
                     cartUnit: widget.productUnit,
                   );

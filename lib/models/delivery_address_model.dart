@@ -11,17 +11,17 @@ class DeliveryAddressModel {
   String pinCode;
   String addressType;
 
-  DeliveryAddressModel(
-    this.addressType,
-    this.aera,
-    this.alternateMobileNo,
-    this.city,
-    this.firstName,
-    this.landMark,
-    this.lastName,
-    this.mobileNo,
-    this.pinCode,
-    this.street,
-    this.scoirty,
-  );
+  DeliveryAddressModel({
+    required this.addressType,
+    required this.aera,
+    required this.alternateMobileNo,
+    required this.city,
+    required this.firstName,
+    required this.landMark,
+    required this.lastName,
+    required this.mobileNo,
+    required this.pinCode,
+    required this.street,
+    required this.scoirty,
+  });
 }

@@ -18,7 +18,10 @@ class ProductOverview extends StatefulWidget {
   final String productId;
 
   ProductOverview(
-      this.productId, this.productImage, this.productName, this.productPrice);
+      {required this.productId,
+      required this.productImage,
+      required this.productName,
+      required this.productPrice});
 
   @override
   _ProductOverviewState createState() => _ProductOverviewState();

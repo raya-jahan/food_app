@@ -7,25 +7,29 @@ import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class SingleItem extends StatefulWidget {
-  bool isBool = false;
-  String productImage;
-  String productName;
-  bool wishList = false;
-  int productPrice;
-  String productId;
-  int productQuantity;
-  Function onDelete;
-  var productUnit;
+  late bool? isBool = false;
+  late String? productImage;
+  late String? productName;
+  late bool? wishList = false;
+  late int? productPrice;
+  late String? productId;
+  late int? productQuantity;
+  // late Function? onDelete;
+
+  //fixed it myself
+  late VoidCallback? onDelete;
+  late var productUnit;
+
   SingleItem(
-      {required this.productQuantity,
-      required this.productId,
-      required this.productUnit,
-      required this.onDelete,
-      required this.isBool,
-      required this.productImage,
-      required this.productName,
-      required this.productPrice,
-      required this.wishList});
+      {this.productQuantity,
+      this.productId,
+      this.productUnit,
+      this.onDelete,
+      this.isBool,
+      this.productImage,
+      this.productName,
+      this.productPrice,
+      this.wishList});
 
   @override
   _SingleItemState createState() => _SingleItemState();
@@ -37,7 +41,8 @@ class _SingleItemState extends State<SingleItem> {
   int count = 0;
   getCount() {
     setState(() {
-      count = widget.productQuantity;
+      //fixed it myself
+      count = widget.productQuantity!;
     });
   }
 
@@ -57,7 +62,8 @@ class _SingleItemState extends State<SingleItem> {
                   height: 90,
                   child: Center(
                     child: Image.network(
-                      widget.productImage,
+                      // fixed it myself
+                      widget.productImage!,
                     ),
                   ),
                 ),
@@ -75,7 +81,8 @@ class _SingleItemState extends State<SingleItem> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            widget.productName,
+                            // fixed it myself
+                            widget.productName!,
                             style: TextStyle(
                                 //color: textColor,
                                 fontWeight: FontWeight.bold,
@@ -162,10 +169,11 @@ class _SingleItemState extends State<SingleItem> {
                       : EdgeInsets.only(left: 15, right: 15),
                   child: widget.isBool == false
                       ? Count(
-                          productId: widget.productId,
-                          productImage: widget.productImage,
-                          productName: widget.productName,
-                          productPrice: widget.productPrice,
+                          // fixed it myself
+                          productId: widget.productId!,
+                          productImage: widget.productImage!,
+                          productName: widget.productName!,
+                          productPrice: widget.productPrice!,
                         )
                       : Padding(
                           padding: const EdgeInsets.only(top: 8),
@@ -208,13 +216,13 @@ class _SingleItemState extends State<SingleItem> {
                                                   });
                                                   reviewCartProvider
                                                       .updateReviewCartData(
-                                                    cartImage:
-                                                        widget.productImage,
-                                                    cartId: widget.productId,
+                                                    cartImage: // fixed it myself
+                                                        widget.productImage!,
+                                                    cartId: widget.productId!,
                                                     cartName:
-                                                        widget.productName,
+                                                        widget.productName!,
                                                     cartPrice:
-                                                        widget.productPrice,
+                                                        widget.productPrice!,
                                                     cartQuantity: count,
                                                   );
                                                 }
@@ -239,13 +247,13 @@ class _SingleItemState extends State<SingleItem> {
                                                   });
                                                   reviewCartProvider
                                                       .updateReviewCartData(
-                                                    cartImage:
-                                                        widget.productImage,
-                                                    cartId: widget.productId,
+                                                    cartImage: // fixed it myself
+                                                        widget.productImage!,
+                                                    cartId: widget.productId!,
                                                     cartName:
-                                                        widget.productName,
+                                                        widget.productName!,
                                                     cartPrice:
-                                                        widget.productPrice,
+                                                        widget.productPrice!,
                                                     cartQuantity: count,
                                                   );
                                                 }

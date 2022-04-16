@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/config/colors.dart';
 import 'package:food_delivery_app/controllers/product_provider.dart';
 import 'package:food_delivery_app/controllers/user_provider.dart';
+import 'package:food_delivery_app/view/home/signal_product.dart';
 import 'package:food_delivery_app/view/product_overview/product_overview.dart';
 import 'package:food_delivery_app/view/review_cart/review_cart.dart';
 import 'package:food_delivery_app/view/search/search.dart';
@@ -49,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             children: productProvider.getHerbsProductDataList.map(
               (herbsProductData) {
-                return SingalProduct(
+                return SignalProduct(
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -93,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => Search(
+                      builder: (context) => Search.builder(
                         search: productProvider.getFreshProductDataList,
                       ),
                     ),
@@ -112,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             children: productProvider.getFreshProductDataList.map(
               (freshProductData) {
-                return SingalProduct(
+                return SignalProduct(
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -172,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             children: productProvider.getRootProductDataList.map(
               (rootProductData) {
-                return SingalProduct(
+                return SignalProduct(
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(

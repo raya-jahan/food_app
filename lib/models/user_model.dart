@@ -3,10 +3,10 @@ class UserModel {
   String userEmail;
   String userImage;
   String userUid;
-  UserModel(
-    this.userEmail,
-    this.userImage,
-    this.userName,
-    this.userUid,
-  );
+  UserModel({
+    required this.userEmail,
+    required this.userImage,
+    required this.userName,
+    required this.userUid,
+  });
 }

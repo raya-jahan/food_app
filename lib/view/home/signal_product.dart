@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/config/colors.dart';
 import 'package:food_delivery_app/models/product_model.dart';
 import 'package:food_delivery_app/view/count/count.dart';
 import 'package:food_delivery_app/view/widgets/product_unit.dart';
 
 class SignalProduct extends StatefulWidget {
-  final String productImage;
-  final String productName;
-  final int productPrice;
-  final Function onTap;
-  final String productId;
-  final ProductModel productUnit;
+  late final String? productImage;
+  late final String? productName;
+  late final int? productPrice;
+  //late final Function? onTap;
+  //fixed it myself
+  late final VoidCallback? onTap;
+  late final String? productId;
+  late final ProductModel? productUnit;
 
-  SignalProduct(this.productId, this.productImage, this.productName,
-      this.productUnit, this.onTap, this.productPrice);
+  SignalProduct(
+      {this.productId,
+      this.productImage,
+      this.productName,
+      this.productUnit,
+      this.onTap,
+      this.productPrice});
 
   @override
   _SingalProductState createState() => _SingalProductState();
@@ -24,7 +30,7 @@ class _SingalProductState extends State<SignalProduct> {
   var firstValue;
   @override
   Widget build(BuildContext context) {
-    widget.productUnit.productUnit.firstWhere((element) {
+    widget.productUnit!.productUnit.firstWhere((element) {
       setState(() {
         firstValue = element;
       });
@@ -53,7 +59,7 @@ class _SingalProductState extends State<SignalProduct> {
                     padding: EdgeInsets.all(5),
                     width: double.infinity,
                     child: Image.network(
-                      widget.productImage,
+                      widget.productImage!,
                     ),
                   ),
                 ),
@@ -66,7 +72,7 @@ class _SingalProductState extends State<SignalProduct> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          widget.productName,
+                          widget.productName!,
                           style: TextStyle(
                             color: textColor,
                             fontWeight: FontWeight.bold,
@@ -94,7 +100,7 @@ class _SingalProductState extends State<SignalProduct> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: widget
-                                              .productUnit.productUnit
+                                              .productUnit!.productUnit
                                               .map<Widget>((data) {
                                             return Column(
                                               children: [

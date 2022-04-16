@@ -6,6 +6,7 @@ import 'package:food_delivery_app/view/my_profile/my_profile.dart';
 import 'package:food_delivery_app/view/review_cart/review_cart.dart';
 import 'package:food_delivery_app/view/wishList/wish_list.dart';
 
+// ignore: must_be_immutable
 class DrawerSide extends StatefulWidget {
   UserProvider userProvider;
   DrawerSide({required this.userProvider});
@@ -14,17 +15,17 @@ class DrawerSide extends StatefulWidget {
 }
 
 class _DrawerSideState extends State<DrawerSide> {
-  Widget listTile(String title, IconData iconData, Function onTap) {
+  Widget listTile({String? title, IconData? iconData, Function? onTap}) {
     return Container(
       height: 50,
       child: ListTile(
-        onTap: onTap(),
+        onTap: onTap!(),
         leading: Icon(
           iconData,
           size: 28,
         ),
         title: Text(
-          title,
+          title!,
           //style: TextStyle(color: textColor),
         ),
       ),
@@ -50,8 +51,7 @@ class _DrawerSideState extends State<DrawerSide> {
                       child: CircleAvatar(
                         backgroundColor: Colors.yellow,
                         backgroundImage: NetworkImage(
-                          userData.userImage ??
-                              "https://s3.envato.com/files/328957910/vegi_thumb.png",
+                          userData.userImage,
                         ),
                         radius: 40,
                       ),
@@ -109,7 +109,7 @@ class _DrawerSideState extends State<DrawerSide> {
               },
             ),
             listTile(
-                iconData: Icons.notifications_outlined, title: "Notificatio"),
+                iconData: Icons.notifications_outlined, title: "Notification"),
             listTile(iconData: Icons.star_outline, title: "Rating & Review"),
             listTile(
                 iconData: Icons.favorite_outline,

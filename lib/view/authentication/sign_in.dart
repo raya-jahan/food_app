@@ -15,7 +15,7 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   late UserProvider userProvider;
-  Future<void> _googleSignUp() async {
+  Future<User?> _googleSignUp() async {
     try {
       final GoogleSignIn _googleSignIn = GoogleSignIn(
         scopes: ['email'],
@@ -24,7 +24,7 @@ class _SignInState extends State<SignIn> {
 
       final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
       final GoogleSignInAuthentication googleAuth =
-          await googleUser.authentication;
+          await googleUser!.authentication;
 
       final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
@@ -34,16 +34,17 @@ class _SignInState extends State<SignIn> {
       final User? user = (await _auth.signInWithCredential(credential)).user;
       // print("signed in " + user.displayName);
       userProvider.addUserData(
-        currentUser: user,
-        userEmail: user.email,
-        userImage: user.photoURL,
-        userName: user.displayName,
+        currentUser: user!,
+        userEmail: user.email!,
+        userImage: user.photoURL!,
+        userName: user.displayName!,
       );
 
       return user;
     } catch (e) {
-      print(e.message);
+      //print(e.message);
     }
+    return null;
   }
 
   @override

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ProductUnit extends StatelessWidget {
-  late final Function onTap;
+  //fixed it myself
+  late final VoidCallback onTap;
   late final String title;
-  ProductUnit(this.onTap, this.title);
+  ProductUnit({required this.onTap, required this.title});
   @override
   Widget build(BuildContext context) {
     return InkWell(

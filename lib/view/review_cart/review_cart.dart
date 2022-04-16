@@ -7,6 +7,7 @@ import 'package:food_delivery_app/view/check_out/delivery_details/delivery_detai
 import 'package:food_delivery_app/view/widgets/single_item.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class ReviewCart extends StatelessWidget {
   late ReviewCartProvider reviewCartProvider;
   showAlertDialog(BuildContext context, ReviewCartModel delete) {
@@ -69,7 +70,7 @@ class ReviewCart extends StatelessWidget {
             ),
             onPressed: () {
               if (reviewCartProvider.getReviewCartDataList.isEmpty) {
-                return Fluttertoast.showToast(msg: "No Cart Data Found");
+                Fluttertoast.showToast(msg: "No Cart Data Found");
               }
               Navigator.of(context).push(
                 MaterialPageRoute(

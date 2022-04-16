@@ -7,6 +7,7 @@ import 'package:food_delivery_app/view/check_out/payment_summary/my_google_pay.d
 import 'package:food_delivery_app/view/check_out/payment_summary/order_item.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class PaymentSummary extends StatefulWidget {
   var deliverAddressList;
 
@@ -77,7 +78,7 @@ class _PaymentSummaryState extends State<PaymentSummary> {
                   //color: textColor,
                   ),
             ),
-            //color: primaryColor,
+            color: primaryColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
